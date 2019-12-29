@@ -76,16 +76,19 @@ jobs:
     <<: *buildJob
     environment:
       MODULE: app
-  ##
-  # We define here workflows. We will add all our jobs
-  # to a common workflow, and for each job of the workflow we will make it
-  # inherit its properties from a specific workflow
-  ##
-  workflows:
-    version: 2
-    build-test-deploy:
-      jobs:
-        - core:
-            <<: *defaultWorkflow
-        - app:
-            <<: *defaultWorkflow
+  build: # Do NOT rename this "build" job because Circle CI expects this name.
+    <<: *deployReleaseJob
+
+##
+# We define here workflows. We will add all our jobs
+# to a common workflow, and for each job of the workflow we will make it
+# inherit its properties from a specific workflow
+##
+workflows:
+  version: 2
+  build-test-deploy:
+    jobs:
+      - core:
+        <<: *defaultWorkflow
+      - app:
+        <<: *defaultWorkflow
