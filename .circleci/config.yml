@@ -76,8 +76,6 @@ jobs:
     <<: *buildJob
     environment:
       MODULE: app
-  build: # Do NOT rename this "build" job because Circle CI expects this name.
-    <<: *deployReleaseJob
 
 ##
 # We define here workflows. We will add all our jobs
