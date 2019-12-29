@@ -17,6 +17,7 @@ default: &defaultJob
 ##
 build-job: &buildJob
   # It will inherit the defaultJob.
+    <<: *defaultJob
 steps:
       # Checkout to our repo
       - checkout
