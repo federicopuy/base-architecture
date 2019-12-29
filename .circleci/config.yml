@@ -1,0 +1,43 @@
+# Android CircleCI 2.0 configuration file
+#
+# Check https://circleci.com/docs/2.0/language-android/ for more details
+#
+version: 2
+jobs:
+  build:
+    working_directory: ~/BaseArchitecture
+    docker:
+      - image: circleci/android:api-28
+    environment:
+      JVM_OPTS: -Xmx3200m
+    steps:
+      - checkout
+      - restore_cache:
+          key: jars-{{ checksum  "core/build.gradle" }}-{{ checksum  "app/build.gradle" }}
+#      - run:
+#         name: Chmod permissions #if permission for Gradlew Dependencies fail, use this.
+#         command: sudo chmod +x ./gradlew
+      - run:
+          name: Download Dependencies
+          command: ./gradlew androidDependencies
+      - save_cache:
+          paths:
+            - ~/.gradle
+          key: jars-{{ checksum  "core/build.gradle" }}-{{ checksum  "app/build.gradle" }}
+      - run:
+          name: Run App Module Unit Tests
+          command: ./gradlew :app:testDebugUnitTest
+      - store_artifacts:
+          path: app/build/reports
+      - store_test_results:
+          path: app/build/test-results
+      - run:
+          name: Run Core Module Unit Tests
+          command: ./gradlew :core:test
+      - store_artifacts:
+          path: core/build/reports
+      - store_test_results:
+          path: core/build/test-results
+      - run:
+          name: Run Lint Test
+          command: ./gradlew lint
