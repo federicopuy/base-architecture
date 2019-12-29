@@ -51,28 +51,18 @@ steps:
           path: app/build/test-results
 
 ##
-# We define our default workflow
-# This workflow will be used by our default builds
-# The following workflow runs on every branch except master or release/?
-##
-default-workflow: &defaultWorkflow
-  filters:
-    branches:
-      ignore:
-        - master
-        - /release\/.*$/
-##
 # Create our jobs, making them inherit from the defined jobs
 # The ones that will inherit from buildJob need to create the environment variable
 # MODULE. Check the steps defined for that job so you understand why :)
 ##
 version: 2
 jobs:
-  core:
-    <<: *buildJob
-    environment:
-      MODULE: core
-  app:
-    <<: *buildJob
-    environment:
-      MODULE: app
+  build:
+     core:
+       <<: *buildJob
+       environment:
+         MODULE: core
+     app:
+       <<: *buildJob
+       environment:
+         MODULE: app
