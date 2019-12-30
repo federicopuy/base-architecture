@@ -1,13 +1,14 @@
 apply plugin:'com.android.library'
 apply plugin:'kotlin-android'
 apply plugin:'kotlin-android-extensions'
-android {
-    compileSdkVersion 28
+apply plugin: 'com.novoda.bintray-release'
 
+android {
+    compileSdkVersion maxApiLevel.toInteger()
 
     defaultConfig {
-        minSdkVersion 21
-        targetSdkVersion 28
+        minSdkVersion minApiLevel
+        targetSdkVersion maxApiLevel
         versionCode 1
         versionName "1.0"
 
@@ -22,16 +23,30 @@ android {
         }
     }
 
+    publish {
+        def groupProjectID = "$groupProjectId"
+        def artifactProjectID = 'core'
+        def publishVersionID = "$libraryVersion"
+
+        userOrg = 'federicopuy'
+        repoName = 'BaseArchitecture'
+        groupId = groupProjectID
+        artifactId = artifactProjectID
+        publishVersion = publishVersionID
+        desc = 'Base Architecture for Android Projects using ViewModel and LiveData'
+        website = 'https://github.com/federicopuy/base-architecture'
+    }
 }
 
 dependencies {
     implementation fileTree(dir:'libs', include:['*.jar'])
-    implementation "org.jetbrains.kotlin:kotlin-stdlib-jdk7:$kotlin_version"
-    implementation 'androidx.appcompat:appcompat:1.1.0'
-    implementation 'androidx.core:core-ktx:1.1.0'
-    implementation 'androidx.lifecycle:lifecycle-viewmodel-ktx:2.1.0'
-    api 'org.jetbrains.kotlinx:kotlinx-coroutines-core:1.3.2'
-    api 'org.jetbrains.kotlinx:kotlinx-coroutines-android:1.3.2'
-    testImplementation 'junit:junit:4.12'
-    implementation 'androidx.lifecycle:lifecycle-extensions:2.1.0'
+    implementation "org.jetbrains.kotlin:kotlin-stdlib-jdk7:$kotlinVersion"
+    implementation "androidx.appcompat:appcompat:$appCompatVersion"
+    implementation "androidx.lifecycle:lifecycle-extensions:$lifecycleVersion"
+    implementation "androidx.lifecycle:lifecycle-viewmodel-ktx:$lifecycleVersion"
+    implementation "androidx.core:core-ktx:$coreKtxVersion"
+    api "org.jetbrains.kotlinx:kotlinx-coroutines-core:$coroutinesVersion"
+    api "org.jetbrains.kotlinx:kotlinx-coroutines-android:$coroutinesVersion"
+
+    testImplementation "junit:junit:$junitVersion"
 }
