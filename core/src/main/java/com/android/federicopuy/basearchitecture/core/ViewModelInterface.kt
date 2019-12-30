@@ -1,4 +1,4 @@
-package com.android.fpuy.basearchitecture.core
+package com.android.federicopuy.basearchitecture.core
 
 import androidx.lifecycle.LifecycleOwner
 

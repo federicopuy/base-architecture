@@ -1,4 +1,4 @@
-package com.android.fpuy.basearchitecture.core
+package com.android.federicopuy.basearquitecture
 
 import org.junit.Test
 

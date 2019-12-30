@@ -1,4 +1,4 @@
-package com.android.fpuy.basearchitecture.core
+package com.android.federicopuy.basearchitecture.core
 
 import androidx.annotation.VisibleForTesting
 import androidx.lifecycle.LifecycleObserver
@@ -7,13 +7,6 @@ import androidx.lifecycle.MediatorLiveData
 import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.Observer
 import androidx.lifecycle.ViewModel
-import androidx.lifecycle.viewModelScope
-import kotlinx.coroutines.CoroutineScope
-import kotlinx.coroutines.CoroutineStart
-import kotlinx.coroutines.Dispatchers
-import kotlinx.coroutines.Job
-import kotlinx.coroutines.async
-import kotlinx.coroutines.launch
 
 
 /**

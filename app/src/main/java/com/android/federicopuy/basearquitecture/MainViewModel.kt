@@ -1,8 +1,8 @@
-package com.android.fpuy.basearquitecture
+package com.android.federicopuy.basearquitecture
 
-import com.android.fpuy.basearchitecture.core.AbstractViewModel
-import com.android.fpuy.basearchitecture.core.launch
-import com.android.fpuy.basearchitecture.core.liveData
+import com.android.federicopuy.basearchitecture.core.AbstractViewModel
+import com.android.federicopuy.basearchitecture.core.launch
+import com.android.federicopuy.basearchitecture.core.liveData
 import kotlinx.coroutines.delay
 
 class MainViewModel : AbstractViewModel() {

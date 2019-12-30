@@ -1,12 +1,12 @@
-package com.android.fpuy.basearquitecture
+package com.android.federicopuy.basearquitecture
 
 import android.os.Bundle
 import android.view.View
 import android.view.View.VISIBLE
-import com.android.fpuy.basearchitecture.core.AbstractActivity
-import com.android.fpuy.basearchitecture.core.ViewModelInterface
-import com.android.fpuy.basearchitecture.core.ViewState
-import com.android.fpuy.basearchitecture.core.getViewModel
+import com.android.federicopuy.basearchitecture.core.AbstractActivity
+import com.android.federicopuy.basearchitecture.core.ViewModelInterface
+import com.android.federicopuy.basearchitecture.core.ViewState
+import com.android.federicopuy.basearchitecture.core.getViewModel
 import kotlinx.android.synthetic.main.activity_main.*
 
 class MainActivity : AbstractActivity(), ViewModelInterface<MainViewModel> {
