@@ -41,16 +41,12 @@ android {
 dependencies {
     implementation fileTree(dir:'libs', include:['*.jar'])
     implementation "org.jetbrains.kotlin:kotlin-stdlib-jdk7:$kotlinVersion"
-    implementation "androidx.appcompat:appcompat:$appCompatVersion"
+    api "androidx.appcompat:appcompat:$appCompatVersion"
     implementation "androidx.lifecycle:lifecycle-extensions:$lifecycleVersion"
     implementation "androidx.lifecycle:lifecycle-viewmodel-ktx:$lifecycleVersion"
-    implementation "androidx.core:core-ktx:$coreKtxVersion"
+    api "androidx.core:core-ktx:$coreKtxVersion"
     api "org.jetbrains.kotlinx:kotlinx-coroutines-core:$coroutinesVersion"
     api "org.jetbrains.kotlinx:kotlinx-coroutines-android:$coroutinesVersion"
 
     testImplementation project(':core-test')
-    testImplementation "junit:junit:$junitVersion"
-    testImplementation "org.mockito:mockito-core:$mockitoVersion"
-    testImplementation "androidx.arch.core:core-testing:$lifecycleVersion"
-
 }

@@ -1,2 +1,2 @@
-include ':app', ':core', ':core-test'
+include ':app', ':core', ':core-test', ':networking'
 rootProject.name='Base Arquitecture'
