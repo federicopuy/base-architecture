@@ -10,5 +10,4 @@ interface ViewModelInterface<T : AbstractViewModel> : LifecycleOwner {
     val viewModel: T
 
     fun onStateReceived(state: ViewState)
-
 }
