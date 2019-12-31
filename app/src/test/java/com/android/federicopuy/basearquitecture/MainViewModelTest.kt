@@ -19,7 +19,6 @@ import org.mockito.Mockito
 import org.mockito.Mockito.spy
 import org.mockito.Mockito.verify
 import org.mockito.MockitoAnnotations
-import org.mockito.Spy
 import org.mockito.junit.MockitoJUnitRunner
 import org.mockito.Mockito.`when` as whenever
 
@@ -69,7 +68,7 @@ class MainViewModelTest {
             Assert.assertEquals(MainState.ShowText("Luke"), text)
             Assert.assertEquals(MainState.Loading(false), loadingEnd)
         }
-        Assert.assertEquals(2, viewModel.characterCount)
+        Assert.assertEquals(2, viewModel.characterId)
     }
 
     @Test

@@ -6,7 +6,7 @@ import com.android.federicopuy.basearquitecture.model.Character
 
 class MainRepository(private val network: MainNetwork) {
 
-    suspend fun getNextCharacter(count: Int): ApiResult<Character> {
-        return suspendApiCallCoroutine { network.fetchCharacter(count) }
+    suspend fun getNextCharacter(id: Int): ApiResult<Character> {
+        return suspendApiCallCoroutine { network.fetchCharacter(id) }
     }
 }

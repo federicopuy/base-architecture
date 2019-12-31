@@ -22,11 +22,11 @@ fun getNetworkService() = service
 interface MainNetwork {
 
     /**
-     * Service to retrieve Change Pin Screen
+     * Service to retrieve Character
      *
-     * @param cardId
-     * @return the ChangePin model to render the screen
+     * @param id the character Id
+     * @return the Character obtained from the service
      */
-    @GET(" people/{count}")
-    suspend fun fetchCharacter(@Path("count") count: Int): Character
+    @GET(" people/{id}")
+    suspend fun fetchCharacter(@Path("id") id: Int): Character
 }
