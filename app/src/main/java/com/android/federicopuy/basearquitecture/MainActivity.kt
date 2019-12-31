@@ -12,7 +12,7 @@ import kotlinx.android.synthetic.main.activity_main.*
 class MainActivity : AbstractActivity(), ViewModelInterface<MainViewModel> {
 
     override val viewModel by getViewModel {
-        MainViewModel()
+        MainViewModel(MainRepository(getNetworkService()))
     }
 
     override fun onStateReceived(state: ViewState) {

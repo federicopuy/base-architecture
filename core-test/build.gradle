@@ -31,8 +31,9 @@ dependencies {
     implementation "org.jetbrains.kotlinx:kotlinx-coroutines-core:$coroutinesVersion"
     implementation "org.jetbrains.kotlinx:kotlinx-coroutines-android:$coroutinesVersion"
     implementation "androidx.lifecycle:lifecycle-extensions:$lifecycleVersion"
-    implementation "androidx.arch.core:core-testing:$lifecycleVersion"
+    api "androidx.arch.core:core-testing:$lifecycleVersion"
     implementation "org.jetbrains.kotlinx:kotlinx-coroutines-test:$coroutinesVersion"
-    implementation "org.mockito:mockito-core:$mockitoVersion"
+    api "org.mockito:mockito-core:$mockitoVersion"
     implementation "org.mockito:mockito-inline:$mockitoInlineVersion"
+    api "junit:junit:$junitVersion"
 }
