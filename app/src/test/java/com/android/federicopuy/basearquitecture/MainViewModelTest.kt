@@ -59,5 +59,4 @@ class MainViewModelTest {
             Assert.assertEquals(MainState.Loading(false), loadingEnd)
         }
     }
-
 }
