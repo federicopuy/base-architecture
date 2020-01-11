@@ -22,8 +22,7 @@ class MainViewModel(private val repository: MainRepository) : AbstractViewModel(
     suspend fun fetchCharacter() {
         spinner.postValue(MainState.Loading(true))
 
-        val response = repository.getNextCharacter(characterId)
-        when (response) {
+        when (val response = repository.getNextCharacter(characterId)) {
             is ApiResult.Success<Character> -> {
                 text.postValue(MainState.ShowText(response.value.name))
                 characterId++
