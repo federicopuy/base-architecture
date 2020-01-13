@@ -1,14 +1,14 @@
 apply plugin:'com.android.library'
 apply plugin:'kotlin-android'
 apply plugin:'kotlin-android-extensions'
+apply plugin:'com.novoda.bintray-release'
+
 android {
     compileSdkVersion maxApiLevel.toInteger()
 
     defaultConfig {
         minSdkVersion minApiLevel
         targetSdkVersion maxApiLevel
-        versionCode 1
-        versionName "1.0"
 
         testInstrumentationRunner "androidx.test.runner.AndroidJUnitRunner"
         consumerProguardFiles 'consumer-rules.pro'
@@ -24,6 +24,20 @@ android {
     lintOptions {
         abortOnError false
         lintConfig file("../../lint.xml")
+    }
+
+    publish {
+        def groupProjectID = "$groupProjectId"
+        def artifactProjectID = 'core-test'
+        def publishVersionID = "$libraryVersion"
+
+        userOrg = 'federicopuy'
+        repoName = 'BaseArchitecture'
+        groupId = groupProjectID
+        artifactId = artifactProjectID
+        publishVersion = publishVersionID
+        desc = 'Base Testing Extensions for Android Projects'
+        website = 'https://github.com/federicopuy/base-architecture'
     }
 }
 
