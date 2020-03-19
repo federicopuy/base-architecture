@@ -2,7 +2,7 @@ package com.android.federicopuy.basearchitecture.core
 
 import androidx.lifecycle.viewModelScope
 import kotlinx.coroutines.CoroutineScope
-import kotlinx.coroutines.CoroutineStart
+import kotlinx.coroutines.Deferred
 import kotlinx.coroutines.async
 import kotlinx.coroutines.launch
 
@@ -16,6 +16,5 @@ fun AbstractViewModel.launch(
 /**
  * Extension for async coroutines scope
  */
-fun AbstractViewModel.async(
-    block: suspend CoroutineScope.() -> Unit
-) = viewModelScope.async(start = CoroutineStart.LAZY, block = block)
+fun <T> AbstractViewModel.async(
+    block: suspend CoroutineScope.() -> T): Deferred<T> = viewModelScope.async( block = block)

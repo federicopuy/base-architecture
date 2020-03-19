@@ -21,6 +21,7 @@ sealed class ApiResult<out T> {
     sealed class Error(open val code: Int) : ApiResult<Nothing>() {
         data class Http(override val code: Int, val errorBody: ErrorBody?) : Error(code)
         object Network : Error(HttpURLConnection.HTTP_NOT_FOUND)
+        data class UnknownError(val t:Throwable)
     }
 }
 
@@ -45,7 +46,7 @@ suspend fun <T> suspendApiCallCoroutine(apiCall: suspend () -> T): ApiResult<T> 
             } catch (e: UnknownHostException) {
                 ApiResult.Error.Network
             } catch (e: Throwable) {
-                suspend.resumeWithException(e)
+                ApiResult.Error.UnknownError(e)
                 return@launch
             }
             suspend.resume(wrapper)
