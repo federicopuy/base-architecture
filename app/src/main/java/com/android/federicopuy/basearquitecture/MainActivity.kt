@@ -17,18 +17,11 @@ class MainActivity : AbstractActivity(), ViewModelInterface<MainViewModel> {
 
     override fun onStateReceived(state: ViewState) {
         when (state) {
-            is MainState.ShowText -> showText(state.text)
+            is MainState.ShowCharacter -> showFirstText(state.text)
+            is MainState.ShowCharacterInfo -> showSecondText(state.text)
             is MainState.Loading -> processLoading(state.isLoading)
+            is MainState.ResetScreen -> resetScreen()
         }
-    }
-
-    private fun processLoading(isLoading: Boolean) {
-        spinner.visibility = if (isLoading) VISIBLE else View.GONE
-
-    }
-
-    private fun showText(text: String) {
-        textView.text = text
     }
 
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -39,6 +32,25 @@ class MainActivity : AbstractActivity(), ViewModelInterface<MainViewModel> {
     }
 
     private fun initViews() {
-        btShowText.setOnClickListener { viewModel.buttonClicked() }
+        btFirst.setOnClickListener { viewModel.firstButtonClicked() }
+        btSecond.setOnClickListener { viewModel.secondButtonClicked() }
+        btThird.setOnClickListener { viewModel.thirdButtonClicked() }
+    }
+
+    private fun resetScreen() {
+        tvFirst.text = ""
+        tvSecond.text = ""
+    }
+
+    private fun processLoading(isLoading: Boolean) {
+        spinner.visibility = if (isLoading) VISIBLE else View.GONE
+    }
+
+    private fun showFirstText(text: String) {
+        tvFirst.text = text
+    }
+
+    private fun showSecondText(text: String) {
+        tvSecond.text = text
     }
 }

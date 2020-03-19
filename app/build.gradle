@@ -1,6 +1,6 @@
-apply plugin: 'com.android.application'
-apply plugin: 'kotlin-android'
-apply plugin: 'kotlin-android-extensions'
+apply plugin:'com.android.application'
+apply plugin:'kotlin-android'
+apply plugin:'kotlin-android-extensions'
 
 android {
     compileSdkVersion 28
@@ -28,7 +28,7 @@ dependencies {
     implementation project(':core')
     implementation project(':networking')
 
-    implementation"org.jetbrains.kotlin:kotlin-stdlib-jdk7:$kotlinVersion"
+    implementation "org.jetbrains.kotlin:kotlin-stdlib-jdk7:$kotlinVersion"
     implementation "androidx.constraintlayout:constraintlayout:$constraintLayoutVersion"
 
     testImplementation project(':core-test')
